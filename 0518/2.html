@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(num1, num2){
+            return parseFloat(num1) + parseFloat(num2);
+        }
+        const res = add(1000,"200");
+        console.log(res);
+
+        const addRes = (num1, num2) => {
+            return Math.round(num1) + Math.round(num2);
+            console.log("不會出現");
+        }
+        console.log(addRes(200,3))
+        // 我是???，血型??
+        const intro = (name,bloodType) => {
+            return `我是${name}，血型${bloodType}`;
+        }
+        console.log(intro("Hanz","A"));
+        
+
+
+    </script>
+</body>
+</html>

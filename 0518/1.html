@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>Hello，{{name}}，來到這個網站</p>
+        <h3 v-text="`${age}歲`" ></h3>
+        <h3 v-html="content"></h3>
+        <h3>{{live?"活著":"死掉了"}}</h3>
+        <h3>喜歡的音樂是{{music[0]}}</h3>
+        <h3>擅長的工具是{{skill.f2e[0]}}</h3>
+        <h3>也很擅長{{skill["f2e"][1]}}</h3>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue@3.4.27/dist/vue.global.js"></script> -->
+    <script>
+        // debugger
+        // console.log(Vue)
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: 'ingrid',
+                    age: 37,
+                    gender: null,
+                    live: true,
+                    music: ['aimar', 'one ok rock', 'mamamoo'],
+                    skill: {
+                        f2e: ['vue', 'react'],
+                        b2e: ['php', 'nodejs', 'ASP.net']
+
+                    },
+                    content: `<div style="color: red;" >嘿嘿</div>`
+                }
+            },
+        })
+        app.mount('#app')
+
+
+    </script>
+</body>
+
+</html>
