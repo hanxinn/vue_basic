@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 4rem;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item, index) in products" :key="item.id" >
+            <!-- 上架 -->
+            <h3>{{item.title}} </h3>
+            <img :src="item.image" alt="">
+            <br>
+            {{item?.rating?.rate}} ({{item?.rating?.count}})
+            <span v-for="star in parseInt(item.rating.rate)" >★</span>
+        </div> 
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        console.log(Vue);
+        Vue.createApp({
+            data() {
+                return {
+                   products: []
+                }
+            },
+            methods: {
+               
+            },
+            mounted() {
+                // 畫面渲染完，開始執行作用域中的東西
+                // 叫貨車
+                fetch('https://fakestoreapi.com/products/')
+                .then(res=>{
+                    // 貨車到了
+                    return res.json()
+                })
+                .then(json=>{
+                    // 貨車卸貨
+                    console.log(json)
+                    // 放到倉庫裡
+                    this.products = json
+                })
+            },
+        }).mount("#app")
+    </script>
+</body>
+</html>
