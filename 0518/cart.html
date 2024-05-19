@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         #app {
             display: flex;
         }
@@ -14,6 +19,7 @@
             width: 60%;
             height: 100vh;
             background-color: #b7b7b7;
+            padding: 30px;
         }
 
         .form {
@@ -25,7 +31,7 @@
         .cartItem {
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 100%;
         }
     </style>
@@ -36,7 +42,7 @@
     <div id="app">
         <!-- <p v-for="n in 10" >{{n}}</p> -->
         <div class="cart">
-            <h5>Shopping Cart</h5>
+            <h2>Shopping Cart</h2>
             <div class="cartItem" v-for="(cartItem, cartIndex) in cartList" :key="cartItem['id']">
                 <img :src="cartItem['img']" alt="">
                 <div>
